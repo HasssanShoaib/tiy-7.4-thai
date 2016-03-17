@@ -1,11 +1,12 @@
 
 // Bootstrap Variables
-$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+$icon-font-path: '../fonts/';
 
 // Import Bootstrap
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
-
+$thai-blue:  rgb(35, 31, 80);
+$thai-red: rgb(240, 38, 23);
 *,
 *::before,
 *::after {
@@ -14,4 +15,96 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 
 img {
   max-width: 100%;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+body{
+  // background-image: url(http://unsplash.it/1000/1000);
+  // background-size: cover;
+  background: white;
+}
+.top-full-width, .bottom-full-width{
+  background-color: $thai-red;
+}
+.style-font{
+  font-family: 'EB Garamond', serif;
+}
+#sign-in{
+  text-align: right;
+  color: rgb(222, 33, 52);
+  button{
+    background: none;
+    border: none;
+  }
+}
+
+#nav-bar{
+  ul{
+    list-style: none;
+    text-align: center;
+  }
+  li{
+    display: inline-block;
+    padding: 10px;
+    color: black;
+    &:not(:last-of-type){
+      margin-right: 50px;
+    }
+    a{
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size:28px;
+    }
+  }
+}
+.carousel-caption{
+  font-size: 50px;
+  font-weight: bold;
+
+}
+.info-boxes{
+  background-color: $thai-blue;
+}
+.info-box{
+  @include make-sm-column(4);
+}
+.panel{
+  border: none;
+  background: transparent;
+
+}
+.panel-heading, .panel-body{
+  padding: 10px 8px;
+}
+.panel-heading{
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.panel-body{
+  color: white;
+  a{
+    color: white;
+  }
+  ul{
+    list-style: none;
+  }
+}
+
+#footer{
+  form{
+    padding: 10px;
+    text-align: center;
+    input, button{}
+    input{
+      width: 90%;
+    }
+    button{
+      width: 10%;
+    }
+  }
 }
