@@ -6,7 +6,9 @@ var Router = require('./router');
 var router = new Router();
 
 var InterfaceComponent = require('./components/interface.jsx');
-console.log(InterfaceComponent);
+
+Backbone.history.start();
+
 ReactDOM.render(
   React.createElement(
     InterfaceComponent,
