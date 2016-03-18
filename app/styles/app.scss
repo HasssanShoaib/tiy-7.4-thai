@@ -342,3 +342,14 @@ $header-el-ht: 40px; //height for header elements
   text-align: right;
   font-style: italic;
 }
+.options-left, .options-right{
+  display: inline-block;
+  width: 50%;
+}
+.options-left{
+  text-align: left;
+}
+.options-right{
+  text-align: right;
+  margin-left: -4px;
+}

@@ -14,6 +14,7 @@ var SidebarDetail = React.createClass({
         <div className="item-detail-top">
           <span className="item-title">{this.props.model.get('title')}</span>
           <span className="item-price">${ Number(price).toFixed(2) }</span>
+          <i className="fa fa-times"></i>
         </div>
       </div>
     );
@@ -24,7 +25,7 @@ var SidebarDetail = React.createClass({
 var OrderSidebar = React.createClass({
   getInitialState: function(){
     return {
-      order: this.props.order
+      order: this.props.order,
     };
   },
   remove: function( model ){
@@ -38,7 +39,7 @@ var OrderSidebar = React.createClass({
     console.log(this.state.order);
     var orderItems = this.state.order.map(function(model){
       console.log(model);
-      return ( <SidebarDetail model={model} key={model.get('id')} removeOrder={this.props.removeOrder} /> );
+      return ( <SidebarDetail model={model} key={model.get('cid')} removeOrder={this.props.removeOrder} /> );
     }.bind(this));
     var totalPrice = this.state.order.reduce(function(memo, model){
       return memo + Number(model.get('price'));
