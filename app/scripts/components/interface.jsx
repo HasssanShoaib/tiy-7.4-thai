@@ -1,5 +1,6 @@
 var React = require('react');
 
+var InfoPanel = require('./info.jsx');
 
 var InterfaceComponent = React.createClass({
   getInitialState: function(){
@@ -19,7 +20,7 @@ var InterfaceComponent = React.createClass({
   render: function(){
     console.log(this.state.router.current);
     if(this.state.router.current == 'index'){
-      return ( <div>Home Page</div> );
+      return ( <InfoPanel /> );
     }
     if(this.state.router.current == 'order'){
       return ( <div>Menu Page</div> );

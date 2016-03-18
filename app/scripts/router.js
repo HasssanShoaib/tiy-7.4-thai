@@ -8,11 +8,9 @@ var Router = Backbone.Router.extend({
     '*notFound': 'catch'
   },
   index: function(){
-    // console.log('index called');
     this.current = 'index';
   },
   order: function(){
-    // console.log('order called');
     this.current = 'order';
   },
   item: function(id){

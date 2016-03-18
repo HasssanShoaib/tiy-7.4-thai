@@ -65,21 +65,24 @@ body{
   height: 100%;
 }
 #bg{
-  position: relative;
   background: url('../images/thai-bowl.jpg') center center fixed;
 }
 #bg-overlay{
   background-color: rgba(255, 255, 255, .5);
 }
-#order-bg, #item-bg, #info-bg, #bg-overlay, #bg{
+#order-bg, #item-bg, #bg-overlay, #bg{
   position: fixed;
   height: 100%;
   width: 100%;
 }
 #order-bg{
-  // background-color: yellow;
-  // opacity: .15;
-  // content: '';
+  background: url('../images/thai-bowl-2.jpg') center center fixed;
+  opacity: 1;
+}
+
+#item-bg{
+  background: url('../images/thai-bowl-3.jpg') center center fixed;
+  opacity: 1;
 }
 
 //------------------------------------------------------------------------------
@@ -177,7 +180,7 @@ $header-el-ht: 40px; //height for header elements
 .info-header-constrain{
   background: rgba(255,255,255, .75);
   padding: 10px;
-  height: 300px;
+  height: 350px;
 }
 .info-header-title{
   font-family: 'Raleway', sans-serif;
@@ -195,7 +198,13 @@ $header-el-ht: 40px; //height for header elements
   margin-left: -4px;
 }
 .infotainer-body{
-  height: 300px;
+  height: 350px;
+}
+.body-title{
+  margin-bottom: 0;
+}
+.body-body{
+  margin-top: 10px;
 }
 //------------------------------------------------------------------------------
 //            EXTRA STYLES FOR DESKTOP / LARGER RESOLUTION DISPLAYS
@@ -237,6 +246,11 @@ $header-el-ht: 40px; //height for header elements
   }
   .info-header-constrain{
     width: 50%;
-    margin: 0 auto;
+  }
+  .constrain-contact{
+
+  }
+  .constrain-hours{
+    margin-left: 50%;
   }
 }
