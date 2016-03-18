@@ -5,145 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <title>Majestic Thai Restaurant</title>
     <link rel="stylesheet" href="css/app.css">
-    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
-    <div class="container-fluid top-full-width">
+    <div id="bg"></div>
+    <div id="bg-overlay"></div>
+    <div id="order-bg"></div>
+    <div id="item-bg"></div>
+    <div id="info-bg"></div>
+    <div class="container-fluid header-container">
       <div class="container">
-        <!-- <div id="sign-in">
-          <button><span>Login Now To Order</span>
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
-        </div> -->
-        <div id="nav-bar">
-          <ul>
-            <li><a class="style-font" href="#menu">View Menu</a></li>
-            <li><a class="style-font" href="#order">Order Now</a></li>
-            <li><a class="style-font" href="#login">Login</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="container page-content">
-      <div class="row">
-        <div id="page-slider" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <!-- <ol class="carousel-indicators">
-            <li data-target="#page-slider" data-slide-to="0" class="active"></li>
-            <li data-target="#page-slider" data-slide-to="1"></li>
-            <li data-target="#page-slider" data-slide-to="2"></li>
-          </ol> -->
-          <!-- TODO add funny to slides & get some stock images -->
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner" role="listbox">
-            <div class="item active">
-              <img src="images/thai-slider-2.jpg" alt="slide1">
-              <div class="carousel-caption style-font">
-                So Food!
-              </div>
-              <div class="flair flair-1"></div>
-            </div>
-            <div class="item">
-              <img src="images/thai-slider-1.jpg" alt="slide2">
-              <div class="carousel-caption style-font">
-                I CAN HAZ PAD TIE????
-              </div>
-              <div class="flair flair-2"></div>
-            </div>
-            <div class="item">
-              <img src="images/thai-slider-3.jpg" alt="slide3">
-              <div class="carousel-caption style-font">
-                Spicy!
-              </div>
-              <div class="flair flair-3"></div>
-            </div>
+        <div class="row top-full-width" role="navigation">
+          <div id="logo">
+            <a href="#">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 146.2 74.1">
+              <g>
+              	<path class="st0" d="M89.4,60.3c3.2,2.2,5.1,4.5,6.4,4.2c1.8-0.4,4-2.6,4.4-4.4c0.3-1.1-2.5-4-4-4.1C94.5,56,92.7,58.2,89.4,60.3z    M104.3,11.6c3.7-4.1,11.2-4.8,17.5-4.4c11.6,0.7,18.1,5.5,20.4,14.8c-1.3,0.9-2.7,1.8-4.4,2.9c-6.8-9.9-14.6-13.5-23.2-10.1   c-2.7,1.1-6.4,4.1-6.6,6.5l0.2,1.3c1,11.7,1,23.6,0.5,35.4c-0.3,8.4-7.1,12.9-14.9,10.9c-5.7-1.4-8.8-5.3-8.4-10.7   c0.3-5.2,4.1-8.9,9.8-9.6c1-0.1,2-0.1,2.9-0.2c0-9.2,0.5-18.2-0.3-27.2c-0.2-2.4-3.9-5.5-6.6-6.5c-8.6-3.4-16.4,0.2-23.2,10.1   c-1.7-1.1-3-2-4.4-2.9C66,12.7,72.5,7.9,84.1,7.2c6.2-0.4,15.4,1.4,17.5,4.4C102.4,12.7,103.3,12.7,104.3,11.6z"/>
+              	<path class="st0" d="M40.9,64.4c0.6,1.6,2.5,2.8,3.8,4.2c1.2-1.4,3.1-2.7,3.7-4.3C51.8,54,55,43.7,59,33.6c0,11.4,0,22.9,0,34.7   c3.2,0,6.1,0,9.5,0c0-19.9,0-39.7,0-59.9c-3.3,0-6.5,0-10.2,0c-4.4,13.8-8.9,27.8-13.3,41.8c-0.3,0-0.6,0.1-1,0.1   c-1.3-4-2.6-8.1-3.8-12.1c-2.6-8.1-5.5-16.1-7.6-24.3c-1.2-4.7-3.4-6.7-8.2-5.9c-1.1,0.2-2.3,0-3.9,0c0,13.6,0,26.8,0,40.2   c-1.5,0.1-2.5,0.1-3.4,0.3c-6.1,0.8-9.5,4-10,9.3c-0.5,4.6,2.2,9.2,6.4,10.8c5.4,2,12.2,0.4,14.6-4.3c1.4-2.7,2.2-5.9,2.3-9   c0.3-6.8,0.1-13.6,0.1-20.5c0.3-0.1,0.6-0.2,0.8-0.2C34.4,44.6,37.5,54.5,40.9,64.4z M17.2,54.5c1.6,0.2,4.2,2.7,4.1,4.1   c-0.1,1.6-2.5,4-4.1,4.3c-1.5,0.2-3.3-2.1-6.2-4.3C13.9,56.6,15.7,54.3,17.2,54.5z"/>
+              </g>
+              </svg>
+            </a>
           </div>
-
-          <!-- Controls -->
-          <!-- <a class="left carousel-control" href="#page-slider" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#page-slider" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a> -->
-        </div>
-      </div>
-      <div class="row info-boxes">
-        <div class="info-box">
-          <div class="panel">
-            <div class="panel-heading style-font">INFORMATION</div>
-            <div class="panel-body">
-              <div class="address">23 John St Greenville SC 29606</div>
-              <div class="social yelp">
-                <!-- check into yelp api -->
-                <a href="http://yelp.com">
-                  <i class="fa fa-yelp"></i>
-                  <span class="yelp-rating"></span>
-                  <span class="yelp-ratings">({yelp-num})</span>
-                </a>
-              </div>
-              <!-- find facebook like button / followers ? -->
-              <div class="social facebook">
-                <a href="http://facebook.com">
-                  <i class="fa fa-facebook-official"></i>
-                  <span class="facebook-name">Majestic Thai</span>
-                </a>
-              </div>
-              <!-- find # twitter followers? -->
-              <div class="social twitter">
-                <a href="http://twitter.com">
-                  <i class="fa fa-twitter-square"></i>
-                  <span class="twitter-name">@Majestic Thai</span>
-                </a>
-              </div>
-            </div>
+          <div id="order-now" role="button">
+            <a href="#order">ORDER NOW</a>
           </div>
-        </div>
-        <div class="info-box">
-          <div class="panel style-font">
-            <div class="panel-heading">HOURS</div>
-            <div class="panel-body">
-              <ul>
-                <li class="day-hours">M: 10am - 6pm </li>
-                <li class="day-hours">T: 10am - 6pm </li>
-                <li class="day-hours">W: 10am - 6pm </li>
-                <li class="day-hours">T: 10am - 6pm </li>
-                <li class="day-hours">F: 10am - 6pm </li>
-                <li class="day-hours">S: 10am - 6pm </li>
-                <li class="day-hours">S: 10am - 6pm </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="info-box">
-          <div class="panel style-font">
-            <div class="panel-heading">FIND US</div>
-            <div class="panel-body">
-              <div id="panel-map">
-                <!-- googlemap goes here -->
-              </div>
-            </div>
+          <div id="social">
+            <a href="http://www.twitter.com" target="_blank">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="http://www.facebook.com" target="_blank">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+            <a href="http://www.yelp.com" target="_blank">
+              <i class="fa fa-yelp"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="container-fluid bottom-full-width">
-      <div class="container">
-        <div id="footer">
-          <form role="form">
-            <input type="email" name="email" placeholder="Sign Up For Our Newsletter!">
-            <button>
-              <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-            </button>
-          </form>
+    <div class="container-fluid info-holder">
+      <div id="infotainer-map" class="infotainer-body"></div>
+      <div class="info-abs">
+        <div class="row">
+          <div id="infotainer">
+            <div class="infotainer-header">
+              <div class="info-header-block">
+                <div class="info-header-constrain">
+                  <h4 class="info-header-title">CONTACT</h4>
+                  <div class="info-header-body">
+                    <div class="divider"></div>
+                    <h6 class="body-title">address</h6>
+                    <div class="body-body">123 Example St<br>Somewhere, SC USA</div>
+                    <div class="divider"></div>
+                    <h6 class="body-title">telephone</h6>
+                    <div class="body-body">864.555.5555</div>
+                    <div class="divider"></div>
+                    <h6 class="body-title">email</h6>
+                    <div class="body-body">reservations@maj-thai.eat</div>
+                  </div>
+                </div>
+              </div>
+              <div class="info-header-block">
+                <div class="info-header-constrain">
+                  <h4 class="info-header-title">HOURS</h4>
+                  <div class="divider"></div>
+                  <div class="body-body"><span class="hours-day">Monday</span><span class="hours-hours">10am - 10pm</span></div>
+                  <div class="divider"></div>
+                  <div class="body-body"><span class="hours-day">Tuesday</span><span class="hours-hours">10am - 10pm</span></div>
+                  <div class="divider"></div>
+                  <div class="body-body"><span class="hours-day">Wednesday</span><span class="hours-hours">10am - 10pm</span></div>
+                  <div class="divider"></div>
+                  <div class="body-body"><span class="hours-day">Thursday</span><span class="hours-hours">10am - 10pm</span></div>
+                  <div class="divider"></div>
+                  <div class="body-body"><span class="hours-day">Friday</span><span class="hours-hours">10am - 10pm</span></div>
+                  <div class="divider"></div>
+                  <div class="body-body"><span class="hours-day">Saturday</span><span class="hours-hours">10am - 10pm</span></div>
+                  <div class="divider"></div>
+                  <div class="body-body"><span class="hours-day">Sunday</span><span class="hours-hours">10am - 10pm</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div id="app"></div>
-    <script src="js/map.js"></script>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('infotainer-map'), {
+          center: {lat: 34.8469787, lng: -82.3944238},
+          zoom: 8,
+          scrollwheel: false,
+          disableDefaultUI: true
+        });
+
+        var marker = new google.maps.Marker({
+          position: {lat: 34.8429787, lng: -82.4144238},
+          map: map,
+          title: 'Majestic Thai'
+          });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeONgLMpi94HgVDdVWBfJG4he9kay3siM&callback=initMap"
+    async defer></script>
     <script src="js/bundle.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeONgLMpi94HgVDdVWBfJG4he9kay3siM&callback=initMap" type="text/javascript" async defer></script>
   </body>
 </html>

@@ -5,8 +5,31 @@ $icon-font-path: '../fonts/';
 // Import Bootstrap
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
-$thai-blue:  rgb(35, 31, 80);
-$thai-red: rgb(240, 38, 23);
+//colors
+$lt-orange: #E67E22;
+$dk-orange: #D35400;
+$lt-deep-blue: #34495E;
+$dk-deep-blue: #2C3E50;
+
+//mixins
+@mixin blur( $pixel ) {
+  -webkit-filter: blur($pixel);
+  -moz-filter: blur($pixel);
+  -o-filter: blur($pixel);
+  -ms-filter: blur($pixel);
+  filter: blur($pixel);
+}
+
+@mixin header-a {
+  color: $lt-deep-blue;
+  transition: .2s ease-in-out;
+  &:hover{
+    color: $dk-orange;
+    text-decoration: none;
+  }
+}
+
+//global styles / resets
 *,
 *::before,
 *::after {
@@ -16,95 +39,204 @@ $thai-red: rgb(240, 38, 23);
 img {
   max-width: 100%;
 }
+
+svg {
+  fill: currentColor;
+}
+
 ul{
   margin: 0;
   padding: 0;
 }
+.divider{
+  border-bottom: 1px solid $lt-orange;
+  content: '';
+  padding: 4px 0;
+  margin: 0;
+}
+
+//------------------------------------------------------------------------------
+//                    STYLES TO SET THE BACKGROUND
+//------------------------------------------------------------------------------
+html{
+  background-color: $dk-deep-blue;
+}
 body{
-  // background-image: url(http://unsplash.it/1000/1000);
-  // background-size: cover;
-  background: white;
+  height: 100%;
 }
-.top-full-width, .bottom-full-width{
-  background-color: $thai-red;
+#bg{
+  position: relative;
+  background: url('../images/thai-bowl.jpg') center center fixed;
 }
-.style-font{
-  font-family: 'EB Garamond', serif;
+#bg-overlay{
+  background-color: rgba(255, 255, 255, .5);
 }
-#sign-in{
-  text-align: right;
-  color: rgb(222, 33, 52);
-  button{
-    background: none;
-    border: none;
-  }
+#order-bg, #item-bg, #info-bg, #bg-overlay, #bg{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+#order-bg{
+  // background-color: yellow;
+  // opacity: .15;
+  // content: '';
 }
 
-#nav-bar{
-  ul{
-    list-style: none;
-    text-align: center;
-  }
-  li{
-    display: inline-block;
-    padding: 10px;
-    color: black;
-    &:not(:last-of-type){
-      margin-right: 50px;
-    }
-    a{
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      font-size:28px;
-    }
-  }
-}
-.carousel-caption{
-  font-size: 50px;
-  font-weight: bold;
+//------------------------------------------------------------------------------
+//                    STYLES FOR THE TOP NAV / HEADER BAR
+//------------------------------------------------------------------------------
+$header-el-ht: 40px; //height for header elements
 
+//set bootstrap columns on our top level divs
+#logo, #social{
+  @include make-sm-column(3);
 }
-.info-boxes{
-  background-color: $thai-blue;
+#order-now{
+  @include make-sm-column(6);
 }
-.info-box{
-  @include make-sm-column(4);
-}
-.panel{
-  border: none;
-  background: transparent;
 
-}
-.panel-heading, .panel-body{
-  padding: 10px 8px;
-}
-.panel-heading{
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-}
-.panel-body{
-  color: white;
+.top-full-width{
+  padding-top: 10px;
+  padding-bottom: 10px;
   a{
-    color: white;
-  }
-  ul{
-    list-style: none;
+    @include header-a;
   }
 }
 
-#footer{
-  form{
-    padding: 10px;
-    text-align: center;
-    input, button{}
-    input{
-      width: 90%;
+#logo{
+  svg{
+    height: $header-el-ht;
+  }
+}
+
+#logo, #order-now, #social{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#order-now, #social{
+  a{
+    display: inline-block;
+    height: $header-el-ht;
+    font-family: 'Raleway', sans-serif;
+  }
+}
+
+#order-now{
+  a{
+    font-weight: 800;
+    letter-spacing: 10px;
+    padding: 5px 10px;
+    border: 2px solid $lt-deep-blue;
+    font-size: 20px;
+    &:hover{
+      border: 2px solid $dk-orange;
+      background: rgba(255, 255, 255, .5);
     }
-    button{
-      width: 10%;
+  }
+}
+
+#social{
+  a{
+    font-size: 30px;
+    padding: 5px 30px;
+  }
+}
+
+//------------------------------------------------------------------------------
+//                        STYLES FOR MAIN INFO BOX
+//------------------------------------------------------------------------------
+
+#infotainer{
+  @include make-sm-column(10);
+  @include make-sm-column-offset(1);
+}
+.info-holder{
+  position: relative;
+  padding: 0;
+  margin-top: 30px;
+}
+@keyframes slideup {
+  0% { transform: translateY(250%); }
+  90% { transform: translateY(-5%); }
+  100% { transform: translateY(0); }
+}
+
+.info-abs{
+  width: 100%;
+}
+.infotainer-header{
+  @include make-row();
+  margin-top: 20px;
+}
+
+.info-header-block{
+  @include make-xs-column(6);
+  text-align: center;
+}
+.info-header-constrain{
+  background: rgba(255,255,255, .75);
+  padding: 10px;
+  height: 300px;
+}
+.info-header-title{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.hours-day, .hours-hours{
+  width: 50%;
+  display: inline-block;
+}
+.hours-day{
+  text-align: left;
+}
+.hours-hours{
+  margin-left: -4px;
+}
+.infotainer-body{
+  height: 300px;
+}
+//------------------------------------------------------------------------------
+//            EXTRA STYLES FOR DESKTOP / LARGER RESOLUTION DISPLAYS
+//------------------------------------------------------------------------------
+@media (min-width: $screen-sm-min) {
+  #bg{
+    background: url('../images/thai-bowl.jpg') top center no-repeat;
+    background-size: cover;
+  }
+  #logo, #order-now, #social{
+    margin-bottom: 0;
+  }
+  #bg-overlay{
+    // background: none;
+  }
+  #social{
+    text-align: right;
+    a{
+      font-size: 24px;
+      padding: 5px 10px;
     }
+  }
+  .infotainer-header{
+    margin-top: 0;
+  }
+
+  .info-holder{
+    margin-top: 300px;
+    transform: translateY(250%);
+    animation: slideup ease-in;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+  }
+  .info-abs{
+    position: absolute;
+    width: 100%;
+    top: 0;
+  }
+  .info-header-constrain{
+    width: 50%;
+    margin: 0 auto;
   }
 }
