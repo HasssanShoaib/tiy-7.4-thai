@@ -320,3 +320,25 @@ $header-el-ht: 40px; //height for header elements
   text-align: left;
   padding: 10px;
 }
+.menu-item-detail{
+  padding: 10px 0;
+  cursor: pointer;
+  &:not(:last-of-type){
+    border-bottom: 1px solid $lt-deep-blue;
+  }
+}
+.item-title, .item-price{
+  display: inline-block;
+}
+.item-title{
+  width: 75%;
+  font-weight: 800;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+}
+.item-price{
+  width: 25%;
+  margin-left: -4px;
+  text-align: right;
+  font-style: italic;
+}

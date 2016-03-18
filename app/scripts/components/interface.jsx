@@ -1,5 +1,7 @@
 var React = require('react');
-
+var _ = require('underscore');
+var models = require('../models');
+var FoodItem = models.FoodItem;
 var InfoPanel = require('./info.jsx');
 var Order = require('./order.jsx');
 var OrderSidebar = require('./order-sidebar.jsx');
@@ -13,7 +15,12 @@ var InterfaceComponent = React.createClass({
     };
   },
   setOrder: function( model ){
-    this.state.order.add(model);
+    console.log('setOrder called');
+    this.state.order.add( new FoodItem( _.omit(model.attributes, 'id') ));
+  },
+  removeOrder: function ( model ){
+    console.log('removeOrder called');
+    this.state.order.remove( model );
   },
   componentWillMount: function(){
     this.callback = (function(){
@@ -21,6 +28,7 @@ var InterfaceComponent = React.createClass({
     }).bind(this);
     this.state.router.on('route', this.callback );
     this.state.order.on('add', this.callback );
+    this.state.order.on('remove', this.callback );
   },
   componentWillUnmount: function(){
     this.state.router.off('route', this.callback );
@@ -34,7 +42,7 @@ var InterfaceComponent = React.createClass({
       return (
         <div className="container-fluid order-holder">
           <Order menu={this.state.menu} setOrder={this.setOrder} />
-          <OrderSidebar order={this.state.order} />
+          <OrderSidebar order={this.state.order} removeOrder={this.removeOrder} />
         </div>
      );
     }

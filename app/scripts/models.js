@@ -1,7 +1,7 @@
 var Backbone = require('backbone');
 
 var FoodItem = Backbone.Model.extend({
-  idAttribute: 'id'
+  idAttribute: 'cid'
 });
 
 var FoodCollection = Backbone.Collection.extend({
