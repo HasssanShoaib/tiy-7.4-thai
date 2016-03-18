@@ -10,7 +10,7 @@ var models = require('./models');
 var Router = require('./router');
 var router = new Router();
 var menu = new models.FoodCollection( data );
-console.log(menu);
+// console.log(menu);
 var InterfaceComponent = require('./components/interface.jsx');
 
 
@@ -20,7 +20,9 @@ Backbone.history.start();
 ReactDOM.render(
   React.createElement(
     InterfaceComponent,
-    { router: router }
+    { router: router,
+      menu: menu
+     }
   ),
   document.getElementById('app')
 );

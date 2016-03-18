@@ -7,9 +7,7 @@ var ScriptjsLoader = require("react-google-maps/lib/async/ScriptjsLoader");
 var GoogleMap = google.GoogleMap;
 var Marker = google.Marker;
 var GoogleMapLoader = google.GoogleMapLoader;
-// var GoogleMap = google.GoogleMap;
-// var Marker = google.Marker;
-// console.log(google);
+
 var SimpleMap = React.createClass({
   render: function(){
     return (
@@ -25,9 +23,9 @@ var SimpleMap = React.createClass({
         }
         googleMapElement={
           <GoogleMap
-            ref={(map) => console.log(map)}
-            defaultZoom={3}
-            defaultCenter={{lat: -25.363882, lng: 131.044922}}
+            ref={ (map) => console.log()}
+            defaultZoom={16}
+            defaultCenter={{lat: 34.8469787, lng: -82.3944238}}
             >
           </GoogleMap>
         }

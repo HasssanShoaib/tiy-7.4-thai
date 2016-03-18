@@ -1,11 +1,13 @@
 var React = require('react');
 
 var InfoPanel = require('./info.jsx');
+var Order = require('./order.jsx');
 
 var InterfaceComponent = React.createClass({
   getInitialState: function(){
     return {
-      router: this.props.router
+      router: this.props.router,
+      menu: this.props.menu
     };
   },
   componentWillMount: function(){
@@ -18,12 +20,12 @@ var InterfaceComponent = React.createClass({
     this.state.router.off('route', this.callback );
   },
   render: function(){
-    console.log(this.state.router.current);
+    // console.log(this.state.router.current);
     if(this.state.router.current == 'index'){
       return ( <InfoPanel /> );
     }
     if(this.state.router.current == 'order'){
-      return ( <div>Menu Page</div> );
+      return ( <Order menu={this.state.menu} /> );
     }
     if(this.state.router.current == 'item'){
       return (
