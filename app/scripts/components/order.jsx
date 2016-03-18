@@ -38,11 +38,9 @@ var Order = React.createClass({
       </Panel> );
     });
     return (
-      <div className="container-fluid order-holder">
         <Accordion bsClass="order-accordion" defaultActiveKey="1"  >
           {MenuCats}
         </Accordion>
-      </div>
     );
   }
 });

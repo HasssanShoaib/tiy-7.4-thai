@@ -10,6 +10,7 @@ var models = require('./models');
 var Router = require('./router');
 var router = new Router();
 var menu = new models.FoodCollection( data );
+var order = new models.FoodCollection();
 // console.log(menu);
 var InterfaceComponent = require('./components/interface.jsx');
 
@@ -21,7 +22,8 @@ ReactDOM.render(
   React.createElement(
     InterfaceComponent,
     { router: router,
-      menu: menu
+      menu: menu,
+      order: order
      }
   ),
   document.getElementById('app')

@@ -264,11 +264,16 @@ $header-el-ht: 40px; //height for header elements
 //------------------------------------------------------------------------------
 //                        STYLES FOR ORDER PAGE ELEMENTS
 //------------------------------------------------------------------------------
-.order-accordion{
-  @include make-row();
-}
 .order-holder{
   position: relative;
+  @include make-row();
+}
+.order-accordion{
+  @include make-xs-column(6);
+  @include make-xs-column-offset(1);
+}
+.order-sidebar{
+  @include make-xs-column(4);
 }
 .placeholder{
   width: 100%;
@@ -277,8 +282,6 @@ $header-el-ht: 40px; //height for header elements
   content: '';
 }
 .order-panel{
- @include make-xs-column(5);
- @include make-xs-column-offset(2);
  border: 2px solid $lt-deep-blue;
  padding: 0;
  margin-bottom: 25px;
@@ -291,17 +294,6 @@ $header-el-ht: 40px; //height for header elements
   text-align: center;
   padding: 10px;
   margin: 0;
-
-  a{
-    color: $lt-deep-blue;
-    transition: .2s ease-in-out;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: 10px;
-    font-size: 20px;
-    &:hover{
-      text-decoration: none;
-    }
     &>*{
       color: $lt-deep-blue;
       transition: .2s ease-in-out;
@@ -310,6 +302,17 @@ $header-el-ht: 40px; //height for header elements
       letter-spacing: 10px;
       font-size: 20px;
     }
+  }
+
+.order-panel-title, .order-panel-title a{
+  color: $lt-deep-blue;
+  transition: .2s ease-in-out;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 10px;
+  font-size: 20px;
+  &:hover{
+    text-decoration: none;
   }
 }
 .order-panel-collapse{

@@ -2,19 +2,25 @@ var React = require('react');
 
 var InfoPanel = require('./info.jsx');
 var Order = require('./order.jsx');
+var OrderSidebar = require('./order-sidebar.jsx');
 
 var InterfaceComponent = React.createClass({
   getInitialState: function(){
     return {
       router: this.props.router,
-      menu: this.props.menu
+      menu: this.props.menu,
+      order: this.props.order
     };
+  },
+  setOrder: function( model ){
+    this.state.order.add(model);
   },
   componentWillMount: function(){
     this.callback = (function(){
       this.forceUpdate();
     }).bind(this);
     this.state.router.on('route', this.callback );
+    this.state.order.on('add', this.callback );
   },
   componentWillUnmount: function(){
     this.state.router.off('route', this.callback );
@@ -25,7 +31,12 @@ var InterfaceComponent = React.createClass({
       return ( <InfoPanel /> );
     }
     if(this.state.router.current == 'order'){
-      return ( <Order menu={this.state.menu} /> );
+      return (
+        <div className="container-fluid order-holder">
+          <Order menu={this.state.menu} setOrder={this.setOrder} />
+          <OrderSidebar order={this.state.order} />
+        </div>
+     );
     }
     if(this.state.router.current == 'item'){
       return (
