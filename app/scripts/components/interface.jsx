@@ -1,10 +1,12 @@
 var React = require('react');
 var _ = require('underscore');
+var $ = require('jquery');
 var models = require('../models');
 var FoodItem = models.FoodItem;
 var InfoPanel = require('./info.jsx');
 var Order = require('./order.jsx');
 var OrderSidebar = require('./order-sidebar.jsx');
+var PayForm = require('./pay.jsx');
 
 var InterfaceComponent = React.createClass({
   getInitialState: function(){
@@ -14,12 +16,17 @@ var InterfaceComponent = React.createClass({
       order: this.props.order
     };
   },
-  setOrder: function( model ){
-    console.log('setOrder called');
-    this.state.order.add( new FoodItem( _.omit(model.attributes, 'id') ));
+  setOrder: function( model, numOrdered, options ){
+    // console.log('setOrder called');
+    this.state.order.add( new FoodItem(
+      $.extend( {},
+                _.omit(model.attributes, 'id'),
+                {numOrdered: numOrdered, options: options }
+      ))
+    );
   },
   removeOrder: function ( model ){
-    console.log('removeOrder called');
+    // console.log('removeOrder called');
     this.state.order.remove( model );
   },
   componentWillMount: function(){
@@ -46,6 +53,13 @@ var InterfaceComponent = React.createClass({
         </div>
      );
     }
+    if(this.state.router.current == 'pay'){
+      return (
+        <div className="container-fluid order-holder">
+          <PayForm />
+        </div>
+      )
+    }
     if(this.state.router.current == 'item'){
       return (
         <div>
@@ -55,12 +69,12 @@ var InterfaceComponent = React.createClass({
       );
     }
     if(this.state.router.current == 'catch'){
-      return (
-        <div>
-          <div>Catchall Page ( not recognized by router )</div>
-          <div>Caught URL was baseUrl/#{this.state.router.currentSplat }</div>
-        </div>
-      );
+      // return (
+      //   <div>
+      //     <div>Catchall Page ( not recognized by router )</div>
+      //     <div>Caught URL was baseUrl/#{this.state.router.currentSplat }</div>
+      //   </div>
+      // );
     }
   }
 });

@@ -4,6 +4,7 @@ var Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'order': 'order',
+    'pay': 'pay',
     'item/:id': 'item',
     '*notFound': 'catch'
   },
@@ -12,6 +13,9 @@ var Router = Backbone.Router.extend({
   },
   order: function(){
     this.current = 'order';
+  },
+  pay: function(){
+    this.current = 'pay';
   },
   item: function(id){
     // console.log('item w/ id called');

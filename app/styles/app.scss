@@ -41,6 +41,23 @@ $dk-deep-blue: #2C3E50;
     }
   }
 }
+
+@mixin button-style {
+  background: none;
+  border: 2px solid $lt-deep-blue;
+  padding: 5px 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 14px;
+  border-radius: 0;
+  &:hover{
+    background: rgba(255, 255, 255, .5);
+  }
+  &:active, &:focus{
+    outline: none;
+  }
+}
+
 //global styles / resets
 *,
 *::before,
@@ -322,25 +339,54 @@ $header-el-ht: 40px; //height for header elements
 }
 .menu-item-detail{
   padding: 10px 0;
-  cursor: pointer;
+  // cursor: pointer;
   &:not(:last-of-type){
     border-bottom: 1px solid $lt-deep-blue;
   }
+}
+.item-detail-bottom{
+  text-align: right;
 }
 .item-title, .item-price{
   display: inline-block;
 }
 .item-title{
-  width: 75%;
   font-weight: 800;
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
 }
 .item-price{
-  width: 25%;
   margin-left: -4px;
+  margin-right: 10px;
   text-align: right;
   font-style: italic;
+  font-size: 16px;
+}
+.total-price{
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 16px;
+  padding-right: 10px;
+}
+.item-option{
+  margin-left: 10px;
+  font-weight: bold;
+  font-style: italic;
+}
+.order-remove{
+  @include button-style;
+  color: $lt-deep-blue;
+  margin-right: 15px;
+}
+
+
+.options-form{
+  margin-top: 10px;
+  margin-bottom: 10px;
+
 }
 .options-left, .options-right{
   display: inline-block;
@@ -352,4 +398,55 @@ $header-el-ht: 40px; //height for header elements
 .options-right{
   text-align: right;
   margin-left: -4px;
+  input{
+    width: 15%;
+    color: $dk-deep-blue;
+    background: none;
+    border: 2px solid $lt-deep-blue;
+    text-align: center;
+    margin-right: 5%;
+    padding: 5px;
+  }
+  button{
+    @include button-style;
+  }
+}
+
+.submit-order{
+  @include button-style;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.dropdown{
+  margin-right: 5%;
+  button{
+    @include button-style;
+    text-transform: uppercase;
+  }
+  .btn-xs, .btn-group-xs > .btn{
+    padding: 5px 10px;
+  }
+}
+
+.btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle{
+  background: rgba(255,255,255, .75);
+  border: 2px solid $lt-deep-blue;
+}
+
+.btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus{
+  background: rgba(255,255,255, .75);
+  border: 2px solid $lt-deep-blue;
+}
+.btn-default:hover{
+  border: 2px solid $lt-deep-blue;
+}
+.dropdown-menu {
+  background: rgba(255,255,255, .95);
+  border: 2px solid $lt-deep-blue;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+  background-color: $dk-deep-blue;
+  color: white;
+  font-weight: bold;
 }
