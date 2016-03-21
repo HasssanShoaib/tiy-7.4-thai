@@ -56,7 +56,6 @@ var OrderSidebar = React.createClass({
     this.state.order.on('change', this.render );
   },
   goPay: function(){
-    console.log('go pay called');
     Backbone.history.navigate('pay', { trigger: true });
   },
   render: function(){

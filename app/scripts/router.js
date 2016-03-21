@@ -5,6 +5,9 @@ var Router = Backbone.Router.extend({
     '': 'index',
     'order': 'order',
     'pay': 'pay',
+    'track': 'track',
+    'back-login': 'backendLogin',
+    'backend': 'backend',
     'item/:id': 'item',
     '*notFound': 'catch'
   },
@@ -16,6 +19,15 @@ var Router = Backbone.Router.extend({
   },
   pay: function(){
     this.current = 'pay';
+  },
+  track: function(){
+    this.current = 'track';
+  },
+  backendLogin: function(){
+    this.current = 'backend-login';
+  },
+  backend: function(){
+    this.current = 'backend';
   },
   item: function(id){
     // console.log('item w/ id called');

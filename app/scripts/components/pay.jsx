@@ -38,10 +38,10 @@ var PayForm = React.createClass({
       { order: this.props.order.toJSON() },
       { customer: _.omit(this.state, 'preparing', 'prepared', 'delivering', 'delivered') },
       { status: _.pick(this.state, 'preparing', 'prepared', 'delivering', 'delivered') } );
-    console.log('order: ');
-    console.log(order);
     var completeOrder = new CompleteOrder( order );
     completeOrder.save();
+    this.props.resetOrder();
+    Backbone.history.navigate( 'track', {trigger: true });
   },
   render: function(){
     if(this.props.order){
@@ -110,27 +110,32 @@ var PayForm = React.createClass({
               <input name="cardnum"
                 type="number"
                 valueLink={this.linkState('cardnum')}
-                placeholder="Credit Card Number" />
+                placeholder="Credit Card Number"
+                disabled />
               <input className="third" name="exprymonth"
                 type="number"
                 min="01"
                 max="12"
                 valueLink={this.linkState('exprymonth')}
-                placeholder="MM" />
+                placeholder="MM"
+                disabled />
               <input className="third" name="expryyr"
                 type="number"
                 valueLink={this.linkState('expryyr')}
                 min={ date }
                 max={ date + 20 }
-                placeholder="YYYY" />
+                placeholder="YYYY"
+                disabled />
               <input className="third" name="cvv"
                 type="number"
                 valueLink={this.linkState('cvv')}
-                placeholder="CVV" />
+                placeholder="CVV"
+                disabled />
               <input name="cardholdername"
                 type="text"
                 valueLink={this.linkState('cardholdername')}
-                placeholder="Cardholder Name" />
+                placeholder="Cardholder Name"
+                disabled />
               <button>PLACE ORDER</button>
             </form>
           </div>
