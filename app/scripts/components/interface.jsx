@@ -56,7 +56,7 @@ var InterfaceComponent = React.createClass({
     if(this.state.router.current == 'pay'){
       return (
         <div className="container-fluid order-holder">
-          <PayForm />
+          <PayForm order={ this.state.order } />
         </div>
       )
     }

@@ -450,3 +450,34 @@ $header-el-ht: 40px; //height for header elements
   color: white;
   font-weight: bold;
 }
+
+
+.warning{
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+.pay-form{
+  input, button, textarea, .pct{
+    @include make-xs-column(12);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 15px;
+  }
+  .half{
+    @include make-xs-column(6);
+  }
+  .third{
+    @include make-xs-column(4);
+  }
+  .fourth{
+    @include make-xs-column(3);
+  }
+  .sixth{
+    @include make-xs-column(2);
+  }
+  button{
+    @include button-style;
+    text-transform: uppercase;
+  }
+}

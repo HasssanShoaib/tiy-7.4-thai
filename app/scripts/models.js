@@ -9,7 +9,12 @@ var FoodCollection = Backbone.Collection.extend({
 
 });
 
+var CompleteOrder = Backbone.Model.extend({
+  urlRoot: 'http://tiny-lasagna-server.herokuapp.com/collections/mtorders',
+  idAttribute: '_id',
+})
 module.exports = {
   FoodItem: FoodItem,
-  FoodCollection: FoodCollection
+  FoodCollection: FoodCollection,
+  CompleteOrder: CompleteOrder
 }
