@@ -25,12 +25,19 @@ var PayForm = React.createClass({
       exprymonth: '',
       expryyr: '',
       cvv: '',
-      cardholdername: ''
+      cardholdername: '',
+      preparing: false,
+      prepared: false,
+      delivering: false,
+      delivered: false
     };
   },
   sendOrder: function(e){
     e.preventDefault();
-    var order = $.extend( {}, {order: this.props.order.toJSON() }, { customer: this.state } );
+    var order = $.extend( {},
+      { order: this.props.order.toJSON() },
+      { customer: _.omit(this.state, 'preparing', 'prepared', 'delivering', 'delivered') },
+      { status: _.pick(this.state, 'preparing', 'prepared', 'delivering', 'delivered') } );
     console.log('order: ');
     console.log(order);
     var completeOrder = new CompleteOrder( order );
