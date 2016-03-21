@@ -80,7 +80,6 @@ var MenuDetail = React.createClass({
       options = options.map(function(optionArr){
         optKey += 1;
         var optName = 'option-' + optKey;
-        // console.log(this.state);
         var optVal = optionArr[this.state[optName]];
         return optVal;
       }.bind(this));
